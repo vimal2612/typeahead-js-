@@ -31,13 +31,18 @@ function displayMatches (){
     suggestions.innerHTML = html;
 }
 
+function clearMatches () {
+  
+    suggestions.innerHTML = null; 
+}
 const searchInput = document.querySelector('.search');
-const suggestions = document.querySelector('.suggestions');
+let suggestions = document.querySelector('.suggestions');
 
-searchInput.addEventListener('change', displayMatches);  // works when clicked out side or hit enter
+// searchInput.addEventListener('focus', clearMatches);  // works when clicked out side or hit enter
 searchInput.addEventListener('keyup', displayMatches); // works when you type
 
 function selectvalue(e){
     console.log(e.target.innerHTML);
     document.getElementById('textSearch').value=(e.target.innerHTML);
+    document.getElementById('textSearch').select();
 }
